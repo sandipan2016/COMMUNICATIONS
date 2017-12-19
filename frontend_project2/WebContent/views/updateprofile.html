@@ -1,0 +1,85 @@
+
+<style>
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+input[type=password]{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margine:0;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+#x{
+padding-right:10px;
+}
+#n{
+padding:5px;}
+#m{
+padding-left:100px;
+ font-family: "Times New Roman", Times, serif;
+}
+#s{
+font-size:35px;
+padding-left:20px;
+ font-family: "Century", Times, serif;
+}
+</style>
+<h1 id="m">Update Your Profile</h1>
+<hr>
+
+<div class="container">
+  <div class="row">
+<div class="col-sm-6">
+
+<a href="#/profilepic" ng-show="currentUser.firstname" ng-show="currentUser.firstname">
+<img src="http://localhost:9081/backend_project2/getimage/{{currentUser.username}}" 
+alt="Upload image" width="168" height="168" class="img-rounded"></a><element id="s">{{currentUser.firstname}} {{currentUser.lastname}}</element><br><br>
+</div>
+</div>
+<form>
+Firstname:<input type="text" ng-model="userobj.firstname" placeholder="Firstname"><br>
+Lastname:<input type="text" ng-model="userobj.lastname" placeholder="Lastname"><br>
+Email-id:<input type="text" ng-model="userobj.email" placeholder="Email"><br>
+Username:<input type="text" ng-model="userobj.username" placeholder="Username" readonly="readonly"><br>
+Password:<input type="password" ng-model="userobj.password" placeholder="Password"
+onmousedown="this.type='text'" onmouseup="this.type='password'" onmousemove="this.type='password'"><br>
+
+<label id="x">Select Role : </label><input type="radio" ng-model="userobj.role" value="Male"><label id="n">Male</label>
+<input type="radio" ng-model="userobj.role" value="Female"><label id="n">Female</label>
+<input type="radio" ng-model="user.role" ng-show="currentUser.role=='Admin'" value="Admin"><label id="n" ng-show="currentUser.role=='Admin'">Admin</label>
+
+<br>
+<br>
+<input type="submit" ng-click="update()" value="Update"><br>
+</form>
+</div>
